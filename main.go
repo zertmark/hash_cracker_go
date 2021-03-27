@@ -40,12 +40,11 @@ func StartCrack(hash,wordlist_path,encryption_type *string){
 	CheckError(err)
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan(){
-		//if hash == GetMD5Hash(scanner.Text()){
+		
 		var password string =scanner.Text()
 		if *encryption_type == "md5" {
 			CheckHash(hash,GetMD5Hash(scanner.Text()),&password)
 		} else if *encryption_type == "sha1" {
-			fmt.Printf("Using sha1")
 			CheckHash(hash,GetSHA1Hash(scanner.Text()),&password) 
 		} else if *encryption_type == "sha256" {
 			CheckHash(hash,GetSHA256Hash(scanner.Text()),&password)
@@ -67,11 +66,11 @@ func GetTime() time.Duration {
 	var t = time.Now()
 	return t.Sub(start_time)
 }
-func GetMD5Hash(text string) *string {
+func GetMD5Hash(text string)    *string {
     var output string = fmt.Sprintf("%x",md5.Sum([]byte(text)))
     return &output
 }
-func GetSHA1Hash(text string) *string {
+func GetSHA1Hash(text string)   *string {
     var output string = fmt.Sprintf("%x",sha1.Sum([]byte(text)))
     return &output
 }
