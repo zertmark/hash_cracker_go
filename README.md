@@ -5,7 +5,7 @@ Hash Cracker but on Golang
 
 Usage of MD5 Hash Cracker.exe:                         
 
---hash             Hash to crack
---type             Type of hash: md5, sha1, sha256, sha512 
--wordlist          Wordlist to use
+--hash             Hash to crack                                                                             
+--type             Type of hash: md5, sha1, sha256, sha512                                                                         
+-wordlist          Wordlist to use                              
 
